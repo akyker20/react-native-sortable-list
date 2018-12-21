@@ -44,7 +44,8 @@ export default class Row extends Component {
   }
 
   _panResponder = PanResponder.create({
-    onStartShouldSetPanResponder: () => !this._isDisabled(),
+
+    onStartShouldSetPanResponder: () => true,
 
     onMoveShouldSetPanResponder: (e, gestureState) => {
       if (this._isDisabled()) return false;
@@ -82,6 +83,7 @@ export default class Row extends Component {
     },
 
     onPanResponderMove: (e, gestureState) => {
+      if (this._isDisabled) return
       if (
         !this._active ||
         gestureState.numberActiveTouches > 1 ||
