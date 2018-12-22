@@ -83,7 +83,7 @@ export default class Row extends Component {
     },
 
     onPanResponderMove: (e, gestureState) => {
-      if (this._isDisabled) return
+      if (this._isDisabled()) return
       if (
         !this._active ||
         gestureState.numberActiveTouches > 1 ||
